@@ -121,7 +121,17 @@ SELECT vpc.id, vpc.nombre, vpc.apellido, vpc.total_ventas
 FROM VentasPorCliente vpc
 WHERE vpc.total_ventas > (SELECT AVG(total_ventas) FROM VentasPorCliente)
 
+## Sección 3: Prueba Práctica python
 
+1.-  Los 5 productos con mayor número de transacciones (cantidad_tx) son:
+
+3 CLARO, 18 GB+MIN, 3 TIGO ,1415 30 GB+MIN ,574 60 GB+MIN
+
+
+2.-  La categoría (proveedor) que más ingresos genera es: CLARO, con el mayor total en la columna valor_ventas.
+
+3.- 
+No se pudo realizar este análisis porque el archivo no incluye columnas para región ni canal, por lo tanto, no es posible responder esta pregunta con los datos proporcionados.
 
 
 
