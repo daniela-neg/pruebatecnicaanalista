@@ -49,6 +49,25 @@ plt.ylabel('Ventas')
 plt.tight_layout()
 plt.show()
 
+# Comparativo de ingresos y costos (suponiendo costo = 70% del valor)
+df_categoria = df.groupby('proveedor')['valor_ventas'].sum().reset_index()
+df_categoria['Costo_estimado'] = df_categoria['valor_ventas'] * 0.7
+df_categoria.plot(x='proveedor', y=['valor_ventas', 'Costo_estimado'], kind='bar')
+plt.title("Comparativo de Ingresos y Costos por Proveedor")
+plt.ylabel("Monto")
+plt.tight_layout()
+plt.show()
+
+# Gráfico de dispersión
+# Crear columna de ganancia (ganancia = ingreso - costo estimado)
+df['ganancia'] = df['valor_ventas'] * 0.3  # Si asumimos que el costo es 70%
+plt.scatter(df['cantidad_tx'], df['ganancia'])
+plt.xlabel("Número de ventas (transacciones)")
+plt.ylabel("Ganancia")
+plt.title("Relación entre número de ventas y ganancia")
+plt.tight_layout()
+plt.show()
+
 # 6. Conclusiones del análisis
 print("\nConclusiones:")
 print("1. El producto más vendido por volumen es:", top_productos.idxmax())
